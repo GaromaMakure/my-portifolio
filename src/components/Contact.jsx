@@ -46,8 +46,9 @@ const Contact = () => {
         },
         (error) => {
           setLoading(false);
-          console.error(error);
-          alert("Something went wrong. Please try again.");
+          console.error("EmailJS Error:", error);
+          alert("Email service is unavailable. Redirecting to your default email client...");
+          window.location.href = `mailto:garomamak11@gmail.com?subject=Contact from ${form.name}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${form.email}`;
         }
       );
   };
