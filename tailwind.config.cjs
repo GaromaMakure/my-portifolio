@@ -1,26 +1,33 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
+  darkMode: "class",
   mode: "jit",
   theme: {
     extend: {
       colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
-        "black-100": "#100d25",
-        "black-200": "#090325",
-        "white-100": "#f3f3f3",
+        primary: "var(--bg-primary)",
+        secondary: "var(--text-secondary)",
+        tertiary: "var(--bg-card)",
+        "black-100": "var(--bg-section)",
+        "black-200": "var(--bg-deep)",
+        "white-100": "var(--text-primary)",
+        accent: "var(--accent)",
+        "accent-light": "var(--accent-light)",
+        green: { DEFAULT: "var(--green)", light: "var(--green-light)" },
+        blue: { DEFAULT: "var(--blue)", light: "var(--blue-light)" },
       },
       boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
+        card: "var(--shadow-card)",
+        glow: "var(--shadow-glow)",
+        "3d": "var(--shadow-3d)",
       },
       screens: {
         xs: "450px",
       },
       backgroundImage: {
-        "hero-pattern":
-          "radial-gradient(ellipse at top, rgba(145, 94, 255, 0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(43, 26, 94, 0.4) 0%, transparent 50%)",
+        "hero-pattern": "var(--hero-gradient)",
+        "card-gradient": "var(--card-gradient)",
       },
     },
   },

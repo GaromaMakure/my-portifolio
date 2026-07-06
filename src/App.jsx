@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
+import { ThemeProvider } from "./context/ThemeContext";
 import {
   About,
   Contact,
@@ -9,29 +10,26 @@ import {
   Navbar,
   Tech,
   Works,
-  StarsCanvas,
 } from "./components";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar />
-          <Hero />
-        </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <div className="relative z-0 bg-primary transition-colors duration-300">
+          <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+            <Navbar />
+            <Hero />
+          </div>
 
-        <About />
-        <Experience />
-        <Tech />
-        <Works />
-
-        <div className="relative z-0">
+          <About />
+          <Experience />
+          <Tech />
+          <Works />
           <Contact />
-          <StarsCanvas />
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
