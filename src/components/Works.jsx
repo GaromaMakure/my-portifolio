@@ -20,6 +20,8 @@ const ProjectCard = ({
   image,
   isMobile,
   source_code_link,
+  source_code_links,
+  private_reason,
 }) => (
   <motion.div
     variants={fadeIn("up", "spring", index * 0.12, 0.5)}
@@ -48,17 +50,48 @@ const ProjectCard = ({
         </div>
       )}
 
-      <motion.button
-        type="button"
-        whileHover={{ scale: 1.15, rotate: 10 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => window.open(source_code_link, "_blank")}
-        className="absolute top-3 right-3 w-9 h-9 rounded-full btn-blue flex items-center justify-center text-white !px-0 !py-0 !shadow-none"
-        style={{ boxShadow: "0 4px 0 #1d4ed8" }}
-        aria-label="View on GitHub"
-      >
-        <GitHubIcon />
-      </motion.button>
+      <div className="absolute top-3 right-3 flex flex-col gap-2">
+        {source_code_links ? (
+          source_code_links.map((link, idx) => (
+            <motion.button
+              key={idx}
+              type="button"
+              whileHover={{ scale: 1.15, rotate: 10 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => window.open(link.url, "_blank")}
+              className="w-9 h-9 rounded-full btn-blue flex items-center justify-center text-white !px-0 !py-0 !shadow-none group relative z-10 hover:z-20"
+              style={{ boxShadow: "0 4px 0 #1d4ed8" }}
+              aria-label={`View ${link.name} on GitHub`}
+            >
+              <GitHubIcon />
+              <div className="absolute top-1/2 right-12 -translate-y-1/2 bg-[var(--bg-card)] border border-[var(--border-light)] text-theme-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-lg">
+                {link.name}
+              </div>
+            </motion.button>
+          ))
+        ) : source_code_link ? (
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.15, rotate: 10 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => window.open(source_code_link, "_blank")}
+            className="w-9 h-9 rounded-full btn-blue flex items-center justify-center text-white !px-0 !py-0 !shadow-none"
+            style={{ boxShadow: "0 4px 0 #1d4ed8" }}
+            aria-label="View on GitHub"
+          >
+            <GitHubIcon />
+          </motion.button>
+        ) : private_reason ? (
+          <div
+             className="w-9 h-9 rounded-full bg-slate-700/80 flex items-center justify-center text-white/70 !px-0 !py-0 !shadow-none cursor-help group relative z-10 hover:z-20"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path fillRule="evenodd" d="M12 1.5a5.25 5.25 0 00-5.25 5.25v3a3 3 0 00-3 3v6.75a3 3 0 003 3h10.5a3 3 0 003-3v-6.75a3 3 0 00-3-3v-3c0-2.9-2.35-5.25-5.25-5.25zm3.75 8.25v-3a3.75 3.75 0 10-7.5 0v3h7.5z" clipRule="evenodd" /></svg>
+            <div className="absolute top-1/2 right-12 -translate-y-1/2 bg-[var(--bg-card)] border border-[var(--border-light)] text-theme-primary text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-lg max-w-[150px] whitespace-normal text-left min-w-[120px]">
+              {private_reason}
+            </div>
+          </div>
+        ) : null}
+      </div>
     </div>
 
     <div className="mt-5">

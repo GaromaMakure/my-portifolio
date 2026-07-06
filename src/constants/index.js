@@ -86,7 +86,7 @@ const projects = [
     ],
     image: insaPersonalityTesting,
     isMobile: false,
-    source_code_link: "https://github.com/GaromaMakure",
+    private_reason: "Source code private due to INSA security requirements",
   },
   {
     name: "INSA Intranet Communication Platform",
@@ -99,7 +99,7 @@ const projects = [
     ],
     image: insaIntranet,
     isMobile: false,
-    source_code_link: "https://github.com/GaromaMakure",
+    private_reason: "Source code private due to INSA security requirements",
   },
   {
     name: "Focus Haramaya Fellowship Website",
@@ -112,7 +112,10 @@ const projects = [
     ],
     image: focusHaramaya,
     isMobile: false,
-    source_code_link: "https://github.com/GaromaMakure",
+    source_code_links: [
+      { name: "Frontend", url: "https://github.com/GaromaMakure/Hu-Fm-Web-Frontend" },
+      { name: "Backend", url: "https://github.com/GaromaMakure/Hu-Fm-Web-Backend" },
+    ],
   },
   {
     name: "NEURONET — Web Platform",
@@ -125,7 +128,10 @@ const projects = [
     ],
     image: mentalHealthAi,
     isMobile: false,
-    source_code_link: "https://github.com/GaromaMakure",
+    source_code_links: [
+      { name: "Web App", url: "https://github.com/Neuronet-final-project/final-year-project-web" },
+      { name: "Backend", url: "https://github.com/Neuronet-final-project/final-year-project-backend" },
+    ],
   },
   {
     name: "NEURONET — Adolescent App",
@@ -138,7 +144,10 @@ const projects = [
     ],
     image: neuronetAdolescent,
     isMobile: true,
-    source_code_link: "https://github.com/GaromaMakure",
+    source_code_links: [
+      { name: "Mobile App", url: "https://github.com/Neuronet-final-project/neuronet_app" },
+      { name: "Backend", url: "https://github.com/Neuronet-final-project/final-year-project-backend" }
+    ],
   },
   {
     name: "NEURONET — Guardian App",
@@ -151,7 +160,10 @@ const projects = [
     ],
     image: neuronetGuardian,
     isMobile: true,
-    source_code_link: "https://github.com/GaromaMakure",
+    source_code_links: [
+      { name: "Mobile App", url: "https://github.com/Neuronet-final-project/neuronet_app" },
+      { name: "Backend", url: "https://github.com/Neuronet-final-project/final-year-project-backend" }
+    ],
   },
 ];
 
